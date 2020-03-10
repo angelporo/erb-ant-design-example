@@ -1,45 +1,26 @@
 // @flow
-import React, { Component } from 'react';
-import { Alert } from 'antd';
-// import 'antd/dist/antd.css';
+import * as React from "react";
+import style from "./Home.css";
+import {Link} from "react-router-dom";
 
-
-class Home extends Component {
-
-  render() {
-    return (
-      <div>
-        <Alert message="Success Tips" type="success" showIcon />
-        <Alert message="Informational Notes" type="info" showIcon />
-        <Alert message="Warning" type="warning" showIcon />
-        <Alert message="Error" type="error" showIcon />
-        <Alert
-          message="success tips"
-          description="Detailed description and advices about successful copywriting."
-          type="success"
-          showIcon
-        />
-        <Alert
-          message="Informational Notes"
-          description="Additional description and informations about copywriting."
-          type="info"
-          showIcon
-        />
-        <Alert
-          message="Warning"
-          description="This is a warning notice about copywriting."
-          type="warning"
-          showIcon
-        />
-        <Alert
-          message="Error"
-          description="This is an error message about copywriting."
-          type="error"
-          showIcon
-        />
+const Home = props => {
+  const {dispatch} = props;
+  return (
+    <div className={style.cont}>
+      <div className={style.contAnniu}>
+        <Link to="/counter" className={style.contAnniuA}>
+          <img src="../images/a1.png" />
+          <span className={style.contAnniuASpan}>矿物成分预估</span>
+        </Link>
       </div>
-    );
-  }
-}
+      <div className={style.contAnniu}>
+        <a className={style.contAnniuA} onClick={() => {}}>
+          <img src="../images/a2.png" />
+          <span className={style.contAnniuASpan}>成分预估标准修改</span>
+        </a>
+      </div>
+    </div>
+  );
+};
 
 export default Home;

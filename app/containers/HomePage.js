@@ -1,11 +1,27 @@
 // @flow
-import React, { Component } from 'react';
-import Home from '../components/Home';
+import React, {Component} from "react";
+import {bindActionCreators} from "redux";
+import Home from "../components/Home";
+import {connect} from "react-redux";
+import * as CounterActions from "../actions/counter";
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   render() {
-    return (
-      <Home />
-    );
+    return <Home />;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    counter: state.counter,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(CounterActions, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);
